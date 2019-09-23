@@ -1,3 +1,26 @@
+h1  {
+    font-family: "Raleway";
+    font-weight: 700;
+    font-size: 3rem;
+    color: #0d3843;
+    margin-bottom: 0;
+}
+
+h2  {
+    font-family: "Raleway";
+    font-weight: 400;
+    font-size: 2rem;
+    color: #0d3843;
+    width: max-content;
+    border-bottom: 2px solid #0d3843; 
+}
+
+p   {
+    font-family: "Raleway";
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
 .pageHeader {
     display: flex;
     flex-direction: column;
@@ -5,7 +28,7 @@
 }
 
 main > h2   {
-    text-align: center;
+    margin: 1rem auto;
 }
 
 .preClocksContainers    {

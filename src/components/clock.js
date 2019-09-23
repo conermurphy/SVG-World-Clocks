@@ -1,6 +1,8 @@
 import React from 'react';
 import clockStyles from "./clockStyles.module.css"
+import SVGCircle from "./SVGCircle"
 const moment = require('moment-timezone');
+
 
 class Clock extends React.Component {
     constructor(props)  {
@@ -33,8 +35,7 @@ class Clock extends React.Component {
                     let second = moment().tz(location).second(); 
                     this.setState({hour, minute, second});
                 }
-            }, 1000
-            
+            }, 1000 
         );
     }
 
@@ -50,11 +51,18 @@ class Clock extends React.Component {
     }
 
     render()    {
-        const {hour, minute, second} = this.state;
+        const { hour, minute, second } = this.state;
+		const hourRadius = mapNumber(hour, 24, 0, 0, 360);
+		const minuteRadius = mapNumber(minute, 60, 0, 0, 360);
+		const secondRadius = mapNumber(second, 60, 0, 0, 360);
+
+		if(!second) {
+			return null;
+        }
 
         let displayLocal;
         if (this.props.city != null)    {
-            displayLocal = <p>The current time for <strong>{this.props.city}</strong> is:</p>;
+            displayLocal = <p><strong>{this.props.city}</strong></p>;
         } else  {
             displayLocal = <p>Your local time is: </p>
         }; 
@@ -62,10 +70,19 @@ class Clock extends React.Component {
         return (
             <div className={clockStyles.container}>
                 {displayLocal}
-                <h3><strong>{ hour } : { minute } : { second }</strong></h3>
+                <div className={clockStyles.SVGContainer}>
+                    <h3><strong>{ hour } : { minute } : { second }</strong></h3>
+                    <SVGCircle type={"hour"} radius={hourRadius}/>
+                    <SVGCircle type={"minute"} radius={minuteRadius}/>
+                    <SVGCircle type={"second"} radius={secondRadius}/>
+                </div> 
             </div>
         )
     }
 }
+
+function mapNumber(number, in_min, in_max, out_min, out_max) {
+    return 360 - (number - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  }
 
 export default Clock;
