@@ -6,6 +6,10 @@
 }
 
 .SVGContainer   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    padding: 3rem 0;
 }
 

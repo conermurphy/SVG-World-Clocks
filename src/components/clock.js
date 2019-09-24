@@ -52,10 +52,9 @@ class Clock extends React.Component {
 
     render()    {
         const { hour, minute, second } = this.state;
-		const hourRadius = mapNumber(hour, 24, 0, 0, 360);
-		const minuteRadius = mapNumber(minute, 60, 0, 0, 360);
-		const secondRadius = mapNumber(second, 60, 0, 0, 360);
-
+		const hourRadius = 565 - ((565/24) * hour);
+		const minuteRadius = 503 - ((503/60) * minute);
+		const secondRadius = 440 - ((440/60) * second);
 		if(!second) {
 			return null;
         }
@@ -81,8 +80,5 @@ class Clock extends React.Component {
     }
 }
 
-function mapNumber(number, in_min, in_max, out_min, out_max) {
-    return 360 - (number - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-  }
-
 export default Clock;
+
