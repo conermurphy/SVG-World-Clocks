@@ -13,3 +13,20 @@
     padding: 3rem 0;
 }
 
+.homeContainer  {
+    padding: 2rem;
+}
+
+.homeSVGContainer   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

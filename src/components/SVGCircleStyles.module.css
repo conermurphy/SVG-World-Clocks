@@ -4,3 +4,11 @@
     transform: rotate(-90deg);
     position: absolute;
 }
+
+.homeHourCircleSvg, .homeMinuteCircleSvg, .homeSecondCircleSvg {
+    width: 65rem;
+    height: 65rem;
+    transform: rotate(-90deg);
+    position: absolute;
+    opacity: 0.6;
+}

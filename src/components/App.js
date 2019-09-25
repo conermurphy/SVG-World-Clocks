@@ -5,11 +5,10 @@ import Clock from "./clock";
 const App = () => {
   return (
     <div className={appStyles.pageContainer}> 
-      <header className={appStyles.pageHeader}>
-        <h1>World Clocks.</h1>
-        <p>Some generic description about this wonderful page.</p>
-      </header>
-      <main>
+    <div className={appStyles.localClockContainer}>
+          <Clock city={null}/>     
+      </div>
+      <main className={appStyles.mainContainer}>
         <h2>Times from around the world.</h2>
         <div className={appStyles.preClocksContainers}>
           <Clock city={'Europe/London'}/>
@@ -18,12 +17,7 @@ const App = () => {
           <Clock city={'Asia/Tokyo'}/>
           <Clock city={'Australia/Sydney'}/>
         </div>
-        <h2>Your local time is:</h2>
-        <div className={appStyles.localClockContainer}>
-          <Clock city={null}/>     
-        </div>
       </main>
-
     </div>
   );
 }
