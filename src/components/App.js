@@ -9,15 +9,28 @@ const App = () => {
           <Clock city={null}/>     
       </div>
       <main className={appStyles.mainContainer}>
-        <h2>Times from around the world.</h2>
-        <div className={appStyles.preClocksContainers}>
-          <Clock city={'Europe/London'}/>
-          <Clock city={'America/New_York'}/>
-          <Clock city={'America/Los_Angeles'}/>
-          <Clock city={'Asia/Tokyo'}/>
-          <Clock city={'Australia/Sydney'}/>
+        <div className={appStyles.worldClocks}>
+          <h2>Times from around the world.</h2>
+          <div className={appStyles.preClocksContainers}>
+            <Clock city={'Europe/London'}/>
+            <Clock city={'America/New_York'}/>
+            <Clock city={'America/Los_Angeles'}/>
+            <Clock city={'Asia/Tokyo'}/>
+            <Clock city={'Australia/Sydney'}/>
+            <Clock city={'Europe/London'}/>
+            <Clock city={'America/New_York'}/>
+            <Clock city={'America/Los_Angeles'}/>
+            <Clock city={'Asia/Tokyo'}/>
+            <Clock city={'Australia/Sydney'}/>
+          </div>
+        </div>
+        <div className={appStyles.choiceSection}>
+
         </div>
       </main>
+      <footer className={appStyles.footer}>
+
+      </footer>
     </div>
   );
 }
