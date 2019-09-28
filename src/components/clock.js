@@ -17,10 +17,6 @@ class Clock extends React.Component {
     }
 
     componentDidMount()   {
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-        );
         this.time = setInterval( 
             () => {
                 if (this.props.city != null) {
@@ -41,14 +37,7 @@ class Clock extends React.Component {
     }
 
     componentWillUnmount()  {
-        clearInterval(this.timerID);
         clearInterval(this.time);
-    }
-
-    tick()  {
-        this.setState({
-            date: new Date()
-        });
     }
 
     render()    {
@@ -60,9 +49,6 @@ class Clock extends React.Component {
             const hourRadius = 565 - ((565/24) * hour);
             const minuteRadius = 503 - ((503/60) * minute);
             const secondRadius = 440 - ((440/60) * second);
-            if(!second) {
-                return null;
-            }
             return (
                 
                 <div className={clockStyles.container}>
@@ -77,9 +63,6 @@ class Clock extends React.Component {
             )
         } else  {
             const { hour, minute, second } = this.state;
-            if(!second) {
-                return null;
-            }
             return (
                 <div className={clockStyles.homeContainer}>
                     <header className={clockStyles.pageHeader}>

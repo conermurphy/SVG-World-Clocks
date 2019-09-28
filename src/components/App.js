@@ -17,11 +17,11 @@ const App = () => {
             <Clock city={'America/Los_Angeles'}/>
             <Clock city={'Asia/Tokyo'}/>
             <Clock city={'Australia/Sydney'}/>
-            <Clock city={'Europe/London'}/>
-            <Clock city={'America/New_York'}/>
-            <Clock city={'America/Los_Angeles'}/>
-            <Clock city={'Asia/Tokyo'}/>
-            <Clock city={'Australia/Sydney'}/>
+            <Clock city={'Pacific/Tahiti'}/>
+            <Clock city={'Europe/Paris'}/>
+            <Clock city={'Pacific/Auckland'}/>
+            <Clock city={'America/Sao_Paulo'}/>
+            <Clock city={'Europe/Moscow'}/>
           </div>
         </div>
         <div className={appStyles.choiceSection}>
