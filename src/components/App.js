@@ -1,38 +1,58 @@
 import React from 'react';
 import appStyles from './appStyles.module.css';
 import Clock from "./clock";
+import Dropdown from "./Dropdown";
 
-const App = () => {
-  return (
-    <div className={appStyles.pageContainer}> 
-    <div className={appStyles.localClockContainer}>
-          <Clock city={null}/>     
-      </div>
-      <main className={appStyles.mainContainer}>
-        <div className={appStyles.worldClocks}>
-          <h2>Times from around the world.</h2>
-          <div className={appStyles.preClocksContainers}>
-            <Clock city={'Europe/London'}/>
-            <Clock city={'America/New_York'}/>
-            <Clock city={'America/Los_Angeles'}/>
-            <Clock city={'Asia/Tokyo'}/>
-            <Clock city={'Australia/Sydney'}/>
-            <Clock city={'Pacific/Tahiti'}/>
-            <Clock city={'Europe/Paris'}/>
-            <Clock city={'Pacific/Auckland'}/>
-            <Clock city={'America/Sao_Paulo'}/>
-            <Clock city={'Europe/Moscow'}/>
+class App extends React.Component {
+  constructor(props)  {
+    super(props);
+    this.state = {
+        choice: ''
+    };
+  }
+
+  handleChoice = (choiceValue) => {
+    if (this.state.choice != choiceValue) {  
+    this.setState({choice: choiceValue});
+    } else  {
+      return;
+    }
+  }
+
+  render() {
+    return (
+      <div className={appStyles.pageContainer}> 
+      <div className={appStyles.localClockContainer}>
+            <Clock city={null} />     
+        </div>
+        <main className={appStyles.mainContainer}>
+          <div className={appStyles.worldClocks}>
+            <h2>Times from around the world.</h2>
+            <div className={appStyles.preClocksContainers}>
+              <Clock city={'Europe/London'} />
+              <Clock city={'America/New_York'} />
+              <Clock city={'America/Los_Angeles'} />
+              <Clock city={'Asia/Tokyo'} />
+              <Clock city={'Australia/Sydney'} />
+              <Clock city={'Pacific/Tahiti'}/>
+              <Clock city={'Europe/Paris'}/>
+              <Clock city={'Pacific/Auckland'}/>
+              <Clock city={'America/Sao_Paulo'}/>
+              <Clock city={'Europe/Moscow'}/>
+            </div>
           </div>
-        </div>
-        <div className={appStyles.choiceSection}>
+          <div className={appStyles.choiceSection}>
+            <h2>Find a timezone.</h2>
+            <Dropdown callback={this.handleChoice}/>
+            <Clock city={this.state.choice} />
+          </div>
+        </main>
+        <footer className={appStyles.footer}>
 
-        </div>
-      </main>
-      <footer className={appStyles.footer}>
-
-      </footer>
-    </div>
-  );
-}
+        </footer>
+      </div>
+      ); 
+    }
+  }
 
 export default App;

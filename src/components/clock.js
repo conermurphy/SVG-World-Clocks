@@ -4,7 +4,6 @@ import SVGCircle from "./SVGCircle"
 import HomeSVGCircle from "./homeSVGCircle"
 const moment = require('moment-timezone');
 
-
 class Clock extends React.Component {
     constructor(props)  {
         super(props);
@@ -14,7 +13,7 @@ class Clock extends React.Component {
             minute: undefined,
             second: undefined,
         };
-    }
+    } 
 
     componentDidMount()   {
         this.time = setInterval( 
@@ -40,6 +39,7 @@ class Clock extends React.Component {
         clearInterval(this.time);
     }
 
+
     render()    {
 
          let displayLocal = <p><strong>{this.props.city}</strong></p>;
@@ -49,6 +49,7 @@ class Clock extends React.Component {
             const hourRadius = 565 - ((565/24) * hour);
             const minuteRadius = 503 - ((503/60) * minute);
             const secondRadius = 440 - ((440/60) * second);
+            
             return (
                 
                 <div className={clockStyles.container}>
@@ -61,7 +62,7 @@ class Clock extends React.Component {
                     </div> 
                 </div>
             )
-        } else  {
+        } else {
             const { hour, minute, second } = this.state;
             return (
                 <div className={clockStyles.homeContainer}>
@@ -76,8 +77,7 @@ class Clock extends React.Component {
                     </div> 
                 </div>
             )
-        }
-        
+        }     
     }
 }
 
