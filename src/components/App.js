@@ -1,7 +1,7 @@
 import React from 'react';
 import appStyles from './appStyles.module.css';
 import Clock from "./clock";
-import Dropdown from "./Dropdown";
+import Dropdown from './Dropdown';
 
 class App extends React.Component {
   constructor(props)  {
@@ -12,12 +12,14 @@ class App extends React.Component {
   }
 
   handleChoice = (choiceValue) => {
-    if (this.state.choice != choiceValue) {  
+    if (this.state.choice !== choiceValue) {  
     this.setState({choice: choiceValue});
     } else  {
       return;
     }
   }
+
+  
 
   render() {
     return (
