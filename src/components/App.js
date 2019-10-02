@@ -2,6 +2,7 @@ import React from 'react';
 import appStyles from './appStyles.module.css';
 import Clock from "./clock";
 import Dropdown from './Dropdown';
+import ChoiceClock from './ChoiceClock';
 
 class App extends React.Component {
   constructor(props)  {
@@ -44,7 +45,7 @@ class App extends React.Component {
           <div className={appStyles.choiceSection}>
             <h2>Find a timezone.</h2>
             <Dropdown callback={this.handleChoice}/>
-            <Clock city={this.state.choice} />
+            <ChoiceClock city={this.state.choice} />
           </div>
         </main>
         <footer className={appStyles.footer}>

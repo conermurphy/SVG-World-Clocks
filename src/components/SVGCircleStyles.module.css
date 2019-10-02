@@ -10,3 +10,9 @@
     position: absolute;
     opacity: 0.6;
 }
+
+.choiceHourCircleSvg, .choiceMinuteCircleSvg, .choiceSecondCircleSvg {
+    transform: rotate(-90deg);
+    position: absolute;
+    opacity: 0.6;
+}

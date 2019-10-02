@@ -16,9 +16,9 @@ const HomeSVGCircle = ({ type, hour, minute, second }) => {
   if (type === "hour") {
     return (<svg id="homeHourCircle" className={SVGCircleStyles.homeHourCircleSvg} style={{width: `100vw`, height: `100vh`}}><circle fill="none" stroke="#CE796B" strokeWidth="3vh" cx={cx} cy={cy} r="45vh" style={{strokeDashoffset: hourRadius, strokeDasharray: hourDA}}/></svg>);
   } else if (type === "minute") {
-    return (<svg id="minuteHourCircle" className={SVGCircleStyles.homeMinuteCircleSvg} style={{width: `100vw`, height: `100vh`}}><circle fill="none" stroke="#E7AD99" strokeWidth="3vh" cx={cx} cy={cy} r="42vh" style={{strokeDashoffset: minuteRadius, strokeDasharray: minuteDA}}/></svg>);
+    return (<svg id="homeMinuteCircle" className={SVGCircleStyles.homeMinuteCircleSvg} style={{width: `100vw`, height: `100vh`}}><circle fill="none" stroke="#E7AD99" strokeWidth="3vh" cx={cx} cy={cy} r="42vh" style={{strokeDashoffset: minuteRadius, strokeDasharray: minuteDA}}/></svg>);
   } else {
-    return (<svg id="secondHourCircle" className={SVGCircleStyles.homeSecondCircleSvg} style={{width: `100vw`, height: `100vh`}}><circle fill="none" stroke="#ECC8AF" strokeWidth="3vh" cx={cx} cy={cy} r="39vh" style={{strokeDashoffset: secondRadius, strokeDasharray: secondDA}}/></svg>);
+    return (<svg id="homeSecondCircle" className={SVGCircleStyles.homeSecondCircleSvg} style={{width: `100vw`, height: `100vh`}}><circle fill="none" stroke="#ECC8AF" strokeWidth="3vh" cx={cx} cy={cy} r="39vh" style={{strokeDashoffset: secondRadius, strokeDasharray: secondDA}}/></svg>);
   }
 
 };

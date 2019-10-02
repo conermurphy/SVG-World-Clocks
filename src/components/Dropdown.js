@@ -25,7 +25,7 @@ class Dropdown extends React.Component  {
         if (this.state.data.includes(this.state.userInput))   {
             choiceValue = this.state.userInput
         } else  {
-            choiceValue = "Waiting for timezone";
+            choiceValue = moment.tz.guess();
             console.log("choiceValue is = ", choiceValue)
         }
         this.props.callback(choiceValue);
