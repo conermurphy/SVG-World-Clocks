@@ -1,18 +1,22 @@
 .hourCircleSvg, .minuteCircleSvg, .secondCircleSvg {
-    width: 15rem;
-    height: 15rem;
     transform: rotate(-90deg);
     position: absolute;
+    width: 250px;
+    height: 250px;
 }
 
 .homeHourCircleSvg, .homeMinuteCircleSvg, .homeSecondCircleSvg {
     transform: rotate(-90deg);
     position: absolute;
     opacity: 0.6;
+    width: 1000px;
+    height: 1000px;
 }
 
 .choiceHourCircleSvg, .choiceMinuteCircleSvg, .choiceSecondCircleSvg {
     transform: rotate(-90deg);
     position: absolute;
     opacity: 0.6;
+    width: 750px;
+    height: 750px;
 }

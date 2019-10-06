@@ -1,36 +1,30 @@
 import React from 'react';
-import clockStyles from "./clockStyles.module.css"
+import clockStyles from "./styles/clockStyles.module.css"
 import SVGCircle from "./SVGCircle"
-import HomeSVGCircle from "./homeSVGCircle"
 const moment = require('moment-timezone');
 
 class Clock extends React.Component {
     constructor(props)  {
         super(props);
         this.state = {
+            data: moment.tz.names(),
             date: new Date(),
             hour: undefined,
             minute: undefined,
             second: undefined,
+            location: undefined,
         };
     } 
 
     componentDidMount()   {
         this.time = setInterval( 
             () => {
-                if (this.props.city != null) {
-                    let location = String(this.props.city);
-                    let hour = moment().tz(location).hour(); 
-                    let minute = moment().tz(location).minute(); 
-                    let second = moment().tz(location).second(); 
-                    this.setState({hour, minute, second});
-                } else {
-                    let location = moment.tz.guess();
-                    let hour = moment().tz(location).hour(); 
-                    let minute = moment().tz(location).minute(); 
-                    let second = moment().tz(location).second(); 
-                    this.setState({hour, minute, second});
-                }
+                    let location = String(this.state.data[this.props.number]).split("/").splice(-1)[0].replace('_', ' ');
+                    let city = this.state.data[this.props.number];
+                    let hour = moment().tz(city).hour(); 
+                    let minute = moment().tz(city).minute(); 
+                    let second = moment().tz(city).second(); 
+                    this.setState({hour, minute, second, location});
             }, 1000 
         );
     }
@@ -42,42 +36,20 @@ class Clock extends React.Component {
 
     render()    {
 
-         let displayLocal = <p><strong>{this.props.city}</strong></p>;
-
-        if (this.props.city != null)  {
-            const { hour, minute, second } = this.state;
-            const hourRadius = 565 - ((565/24) * hour);
-            const minuteRadius = 503 - ((503/60) * minute);
-            const secondRadius = 440 - ((440/60) * second);
+            const { hour, minute, second, location } = this.state;
             
             return (
                 
                 <div className={clockStyles.container}>
-                    {displayLocal}
+                    <p><strong>{location}</strong></p>
                     <div className={clockStyles.SVGContainer}>
                         <h3><strong>{ hour } : { minute } : { second }</strong></h3>
-                        <SVGCircle type={"hour"} radius={hourRadius}/>
-                        <SVGCircle type={"minute"} radius={minuteRadius}/>
-                        <SVGCircle type={"second"} radius={secondRadius}/>
+                        <SVGCircle type={"hour"} hour={hour} minute={minute} second={second}/>
+                        <SVGCircle type={"minute"} hour={hour} minute={minute} second={second}/>
+                        <SVGCircle type={"second"} hour={hour} minute={minute} second={second}/>
                     </div> 
                 </div>
             )
-        } else {
-            const { hour, minute, second } = this.state;
-            return (
-                <div className={clockStyles.homeContainer}>
-                    <header className={clockStyles.pageHeader}>
-                            <h1>World Clocks</h1>
-                            <h3 style={{fontSize:`3rem`}}><strong>{ hour } : { minute } : { second }</strong></h3>
-                        </header>
-                    <div className={clockStyles.homeSVGContainer}>                   
-                        <HomeSVGCircle type={"hour"} hour={hour} minute={minute} second={second}/>
-                        <HomeSVGCircle type={"minute"} hour={hour} minute={minute} second={second}/>
-                        <HomeSVGCircle type={"second"} hour={hour} minute={minute} second={second}/>
-                    </div> 
-                </div>
-            )
-        }     
     }
 }
 

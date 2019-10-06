@@ -1,5 +1,5 @@
 import React from "react"
-import choiceClockStyles from './choiceClockStyles.module.css';
+import choiceClockStyles from './styles/choiceClockStyles.module.css';
 import ChoiceSVGCircle from './ChoiceSVGCircle';
 const moment = require('moment-timezone');
 
@@ -11,17 +11,19 @@ class ChoiceClock extends React.Component {
             hour: undefined,
             minute: undefined,
             second: undefined,
+            location: undefined
         }
     }
 
     componentDidMount() {
         this.time = setInterval(
             () => {
-                let location = String(this.props.city);
-                let hour = moment().tz(location).hour();
-                let minute = moment().tz(location).minute();
-                let second = moment().tz(location).second();
-                this.setState({hour, minute, second});
+                let location = String(this.props.city).split("/").splice(-1)[0].replace('_', ' ');
+                let city = this.props.city;
+                let hour = moment().tz(city).hour();
+                let minute = moment().tz(city).minute();
+                let second = moment().tz(city).second();
+                this.setState({hour, minute, second, location});
             }, 1000
         );
     }
@@ -31,11 +33,11 @@ class ChoiceClock extends React.Component {
     }
 
     render() {
-        const {hour, minute, second } = this.state;
+        const {hour, minute, second, location } = this.state;
         return (
             <div className={choiceClockStyles.container}>
                 <header className={choiceClockStyles.header}>
-                    <h3>The time in: {this.props.city}</h3>
+                    <p>The time in: <strong>{location}</strong></p>
                     <h3 style={{fontSize:`2rem`}}><strong>{ hour } : { minute } : { second }</strong></h3>
                 </header>
                 

@@ -1,8 +1,10 @@
 import React from 'react';
-import appStyles from './appStyles.module.css';
+import appStyles from './styles/appStyles.module.css';
 import Clock from "./clock";
 import Dropdown from './Dropdown';
 import ChoiceClock from './ChoiceClock';
+import HomeClock from './HomeClock';
+const moment = require('moment-timezone');
 
 class App extends React.Component {
   constructor(props)  {
@@ -20,28 +22,30 @@ class App extends React.Component {
     }
   }
 
+  randomNum = () => {
+    let max = moment.tz.names().length;
+    let random = (Math.floor(Math.random() * (max + 1)));
+    return random;
+  }
+
   render() {
     return (
       <div className={appStyles.pageContainer}> 
       <div className={appStyles.localClockContainer}>
-            <Clock city={null} />     
+            <HomeClock/>     
         </div>
         <main className={appStyles.mainContainer}>
           <div className={appStyles.worldClocks}>
             <h2>Times from around the world.</h2>
             <div className={appStyles.preClocksContainers}>
-              <div className={appStyles.preClockContainerTop}>
-                <Clock city={'Europe/London'} />
-                <Clock city={'America/Los_Angeles'} />
-                <Clock city={'Asia/Tokyo'} />
-                <Clock city={'Australia/Sydney'} />
-              </div>
-              <div className={appStyles.preClockContainerBottom}>
-                <Clock city={'Pacific/Tahiti'}/>
-                <Clock city={'Pacific/Auckland'}/>
-                <Clock city={'America/Sao_Paulo'}/>
-                <Clock city={'Europe/Moscow'}/>
-              </div>
+                <Clock number = {this.randomNum()} />
+                <Clock number = {this.randomNum()} />
+                <Clock number = {this.randomNum()} />
+                <Clock number = {this.randomNum()} />
+                <Clock number = {this.randomNum()}/>
+                <Clock number = {this.randomNum()}/>
+                <Clock number = {this.randomNum()}/>
+                <Clock number = {this.randomNum()}/>
             </div>
           </div>
           <div className={appStyles.choiceSection}>

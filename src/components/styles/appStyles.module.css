@@ -44,10 +44,11 @@ main > h2   {
     margin: 1rem auto;
 }
 
-.preClockContainerTop, .preClockContainerBottom   {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.preClocksContainers    {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-gap: 1rem 1rem;
+    align-items: center;
     justify-content: center;
 }
 
@@ -72,5 +73,6 @@ main > h2   {
     align-items: center;
     height: 75vh;
     justify-content: center;
-    padding: 2rem
+    padding: 2rem;
+    position: relative;
 }
