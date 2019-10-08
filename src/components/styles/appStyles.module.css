@@ -10,9 +10,9 @@ h2  {
     font-family: "Raleway";
     font-weight: 400;
     font-size: 2rem;
-    color: #0d3843;
+    color: #ffffff;
     width: max-content;
-    border-bottom: 2px solid #0d3843; 
+    border-bottom: 2px solid #ffffff; 
 }
 
 p   {
@@ -28,7 +28,7 @@ p   {
 }
 
 .mainContainer  {
-    margin: 0 5rem;
+    margin: 0rem;
 }
 
 .pageHeader {
@@ -63,8 +63,10 @@ main > h2   {
 .worldClocks {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    padding-bottom: 3rem;
+    height: 100vh;
+    background-color: #333333;
 }
 
 .choiceSection  {
@@ -73,6 +75,17 @@ main > h2   {
     align-items: center;
     height: 75vh;
     justify-content: center;
-    padding: 2rem;
     position: relative;
+}
+
+.footer {
+    text-align: center;
+    background-color: #333333;
+    color: white;
+    padding: 1rem;
+}
+
+.footer > h4 > a {
+    text-decoration: underline;
+    color: blanchedalmond;
 }

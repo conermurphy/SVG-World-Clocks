@@ -31,11 +31,11 @@ class App extends React.Component {
   render() {
     return (
       <div className={appStyles.pageContainer}> 
-      <div className={appStyles.localClockContainer}>
+        <div className={appStyles.localClockContainer}>
             <HomeClock/>     
         </div>
         <main className={appStyles.mainContainer}>
-          <div className={appStyles.worldClocks}>
+          <div id='worldClocks' className={appStyles.worldClocks}>
             <h2>Times from around the world.</h2>
             <div className={appStyles.preClocksContainers}>
                 <Clock number = {this.randomNum()} />
@@ -55,7 +55,7 @@ class App extends React.Component {
           </div>
         </main>
         <footer className={appStyles.footer}>
-
+            <h4>A small project created by <a href="https://conermurphy.com">Coner Murphy</a>. Check out the code on <a href="https://github.com/conermurphy/SVG-World-Clocks">Github</a></h4>
         </footer>
       </div>
       ); 
