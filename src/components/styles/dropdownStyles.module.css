@@ -10,7 +10,8 @@ input {
     width: 300px;
     z-index: 2;
     text-align: center;
-    border-radius: 10px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
     font-weight: bold;
     height: 1rem;
   }
@@ -23,7 +24,7 @@ input {
 }
 
 .suggestions {
-    border: 1px solid #999;
+    border: 1px solid #ffffff;
     border-top-width: 0;
     list-style: none;
     margin-top: 2rem;
@@ -33,9 +34,11 @@ input {
     width: calc(300px + 1rem);
     z-index: 2;
     text-align: center;
-    background-color: #0d3843;
+    background-color: #2A2B2A;
     color: white;
     position: absolute;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .suggestions li {
@@ -43,8 +46,8 @@ input {
 }
 
 .suggestionActive, .suggestions li:hover {
-    background-color: #f0e1d3;
-    color: #0d3843;
+    background-color: #1D70A2;
+    color: white;
     cursor: pointer;
     font-weight: 700;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import appStyles from './styles/appStyles.module.css';
+import Header from './Header';
 import Clock from "./clock";
 import Dropdown from './Dropdown';
 import ChoiceClock from './ChoiceClock';
@@ -31,12 +32,12 @@ class App extends React.Component {
   render() {
     return (
       <div className={appStyles.pageContainer}> 
-        <div className={appStyles.localClockContainer}>
+        <Header/>
+        <div id='home' className={appStyles.localClockContainer}>
             <HomeClock/>     
         </div>
         <main className={appStyles.mainContainer}>
           <div id='worldClocks' className={appStyles.worldClocks}>
-            <h2>Times from around the world.</h2>
             <div className={appStyles.preClocksContainers}>
                 <Clock number = {this.randomNum()} />
                 <Clock number = {this.randomNum()} />
@@ -48,7 +49,7 @@ class App extends React.Component {
                 <Clock number = {this.randomNum()}/>
             </div>
           </div>
-          <div className={appStyles.choiceSection}>
+          <div id='choiceClock'className={appStyles.choiceSection}>
             <h2>Find a timezone.</h2>
             <Dropdown callback={this.handleChoice}/>
             <ChoiceClock city={this.state.choice} />
