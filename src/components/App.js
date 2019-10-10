@@ -11,7 +11,8 @@ class App extends React.Component {
   constructor(props)  {
     super(props);
     this.state = {
-        choice: ''
+        choice: '',
+        children: []
     };
   }
 
@@ -29,6 +30,31 @@ class App extends React.Component {
     return random;
   }
 
+  // clockGen = () => {
+  //   for(let i = 0; i < 5; i++)  {
+  //     console.log(i)
+  //     // {<Clock key = {i} number = {this.randomNum()}/>}
+      
+  //   }
+  // }
+
+  // Look into a better way of doing this.
+  addClock(){
+    this.setState({
+      children: [
+        <Clock number = {this.randomNum()}/>,
+        this.state.children,
+      ]
+    })
+    console.log(this.state.children)
+  }
+
+  //How does this even work???
+  removeClock(){
+    this.state.children.splice(-1,1);
+  }
+  
+
   render() {
     return (
       <div className={appStyles.pageContainer}> 
@@ -40,15 +66,14 @@ class App extends React.Component {
           <div id='worldClocks' className={appStyles.worldClocks}>
             <div className={appStyles.preClocksContainers}>
                 <Clock number = {this.randomNum()} />
-                <Clock number = {this.randomNum()} />
-                <Clock number = {this.randomNum()} />
-                <Clock number = {this.randomNum()} />
-                <Clock number = {this.randomNum()}/>
-                <Clock number = {this.randomNum()}/>
-                <Clock number = {this.randomNum()}/>
-                <Clock number = {this.randomNum()}/>
-                <Clock number = {this.randomNum()}/>
-                <Clock number = {this.randomNum()}/>
+
+                {/* {this.clockGen()} */}
+                {this.state.children.map(child => child)}
+
+            </div>
+            <div className={appStyles.buttons}>
+              <button onClick={() => this.addClock()}>Add a clock!</button>
+              <button onClick={() => this.removeClock()}>Remove a clock!</button>
             </div>
           </div>
           <div id='choiceClock'className={appStyles.choiceSection}>
