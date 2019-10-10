@@ -47,6 +47,8 @@ class App extends React.Component {
                 <Clock number = {this.randomNum()}/>
                 <Clock number = {this.randomNum()}/>
                 <Clock number = {this.randomNum()}/>
+                <Clock number = {this.randomNum()}/>
+                <Clock number = {this.randomNum()}/>
             </div>
           </div>
           <div id='choiceClock'className={appStyles.choiceSection}>

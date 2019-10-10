@@ -21,3 +21,25 @@
     width: 750px;
     height: 750px;
 }
+
+@media only screen and (max-width: 1000px)   {
+    .homeHourCircleSvg, .homeMinuteCircleSvg, .homeSecondCircleSvg {
+        width: 650px;
+        height: 650px;
+    }
+    .choiceHourCircleSvg, .choiceMinuteCircleSvg, .choiceSecondCircleSvg    {
+        width: 650px;
+        height: 650px;
+    }
+}
+
+@media only screen and (max-width: 600px)   {
+    .homeHourCircleSvg, .homeMinuteCircleSvg, .homeSecondCircleSvg {
+        width: 550px;
+        height: 550px;
+    }
+    .choiceHourCircleSvg, .choiceMinuteCircleSvg, .choiceSecondCircleSvg    {
+        width: 550px;
+        height: 550px;
+    }
+}

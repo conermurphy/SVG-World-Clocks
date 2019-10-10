@@ -55,3 +55,15 @@ input {
 .suggestions li:not(:last-of-type) {
     border-bottom: 1px solid #999;
 }
+
+@media only screen and (max-width: 600px)   {
+    input {
+        width: 250px;
+    }
+    .suggestions {
+        width: calc(250px + 1rem);
+    }
+    .suggestions li {
+        font-size: 15px;
+    };
+}
