@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
         choice: '',
-        children: []
+        children: [this.randomNum(),]
     };
   }
 
@@ -30,28 +30,17 @@ class App extends React.Component {
     return random;
   }
 
-  // clockGen = () => {
-  //   for(let i = 0; i < 5; i++)  {
-  //     console.log(i)
-  //     // {<Clock key = {i} number = {this.randomNum()}/>}
-      
-  //   }
-  // }
-
-  // Look into a better way of doing this.
-  addClock(){
-    this.setState({
-      children: [
-        <Clock number = {this.randomNum()}/>,
-        this.state.children,
-      ]
-    })
-    console.log(this.state.children)
+  onAddClick(){
+    let children = this.state.children;
+    this.setState({children: children.concat(this.randomNum())});
+    console.log("Adding 1 there are", children, "children");
   }
 
-  //How does this even work???
-  removeClock(){
-    this.state.children.splice(-1,1);
+  onRemoveClick(){
+    let childrenClocks = [...this.state.children];
+    childrenClocks.splice(-1, 1)
+    this.setState({children: childrenClocks})
+    console.log("Removing 1 there are", this.state.children, "children");
   }
   
 
@@ -65,15 +54,15 @@ class App extends React.Component {
         <main className={appStyles.mainContainer}>
           <div id='worldClocks' className={appStyles.worldClocks}>
             <div className={appStyles.preClocksContainers}>
-                <Clock number = {this.randomNum()} />
 
-                {/* {this.clockGen()} */}
-                {this.state.children.map(child => child)}
-
+                {this.state.children.map(item => (
+                  <Clock key={item.length} number = {item}/>
+                ))}
+                
             </div>
             <div className={appStyles.buttons}>
-              <button onClick={() => this.addClock()}>Add a clock!</button>
-              <button onClick={() => this.removeClock()}>Remove a clock!</button>
+              <button onClick={() => this.onAddClick()}>Add a clock!</button>
+              <button onClick={() => this.onRemoveClick()}>Remove a clock!</button>
             </div>
           </div>
           <div id='choiceClock'className={appStyles.choiceSection}>
