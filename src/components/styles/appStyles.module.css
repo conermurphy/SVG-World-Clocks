@@ -103,4 +103,9 @@ main > h2   {
     .preClocksContainers    {
         flex-direction: column;
     }
+    .buttons    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

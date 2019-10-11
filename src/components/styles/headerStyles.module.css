@@ -3,7 +3,6 @@
     z-index: 3;
     position: fixed;
     width: 100%;
-    padding: 1rem;
 }
 
 .header > nav   {
@@ -11,6 +10,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
 .header > nav > a   {

@@ -16,11 +16,13 @@ input {
     height: 1rem;
   }
   
-.noSuggestions {
+.noSuggestions > p{
     color: #0d3843;
     padding: 0.5rem;
     text-align: center;
     font-weight: bold;
+    font-size: 0.75rem;
+    margin: 0;
 }
 
 .suggestions {
@@ -58,12 +60,16 @@ input {
 
 @media only screen and (max-width: 600px)   {
     input {
-        width: 250px;
+        width: 200px;
     }
     .suggestions {
-        width: calc(250px + 1rem);
+        width: calc(200px + 1rem);
     }
     .suggestions li {
         font-size: 15px;
+        word-break: break-all;
     };
+    .noSuggestions  {
+        font-size: 0.75rem;
+    }
 }

@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.header > h3 {
+    font-size: 1.5em;
+}
+
 .SVGContainer   {
     display: flex;
     align-items: center;

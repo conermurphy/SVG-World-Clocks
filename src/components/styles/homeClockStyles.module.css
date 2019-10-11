@@ -36,6 +36,6 @@ svg .wheel {
 
 @media only screen and (max-width: 600px)   {
     .mouseSVG   {
-        top: 17.5vh;
+        top: 13.5vh;
     }
 }

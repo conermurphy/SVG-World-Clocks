@@ -101,7 +101,7 @@ class Dropdown extends React.Component  {
             } else {
               suggestionsListComponent = (
                 <div className={dropdownStyles.noSuggestions}>
-                  <em>No suggestions, you're on your own!</em>
+                  <p>Sorry, no zone found :(</p>
                 </div>
               );
             }

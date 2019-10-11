@@ -38,7 +38,7 @@ class ChoiceClock extends React.Component {
             <div className={choiceClockStyles.container}>
                 <header className={choiceClockStyles.header}>
                     <p>The time in: <strong>{location}</strong></p>
-                    <h3 style={{fontSize:`2rem`}}><strong>{ hour } : { minute } : { second }</strong></h3>
+                    <h3><strong>{ hour } : { minute } : { second }</strong></h3>
                 </header>
                 
                 <div className={choiceClockStyles.SVGContainer}>
